@@ -1,0 +1,256 @@
+openapi: 3.0.1
+info:
+  title: UFRN Cat Rescue System
+  description: Documentação referente a API de resgate de gatos no campus da UFRN
+  contact:
+    name: Guilherme Freitas
+    url: teste
+    email: guilhermedin@gmail.com
+  version: "1.0"
+
+servers:
+  - url: /
+
+paths:
+  /v1/rescue{id}/delete:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID do resgate
+      tags:
+        - Resgate
+      description: Deleta um resgate
+      responses:
+        '204':
+          description: NO CONTENT
+
+  /v1/rescue:
+    post:
+      tags:
+        - Resgate
+      description: Salva os dados relacionados a um resgate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rescue'
+      responses:
+        201:
+          description: CREATED
+
+    get:
+      tags:
+        - Resgate
+      description: Lista todos os resgates
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rescue'
+
+  /v1/rescue/{id}:
+    put:
+      tags:
+        - Resgate
+      description: Deve editar os dados de um resgate
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID do resgate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Rescue'
+      responses:
+        204:
+          description: NO CONTENT
+
+    get:
+      tags:
+        - Resgate
+      description: Retona um resgate por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID do resgate
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Rescue'
+        404:
+          description: NOT FOUND
+
+  /v1/rescuer:
+    post:
+      tags:
+        - Rescuer
+      description: Salva dados de um resgatante
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Rescuer'
+      responses:
+        201:
+          description: CREATED
+    get:
+      tags:
+        - Rescuer
+      description: Retorna todos os resgatantes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rescuer'
+
+  /v1/rescuer/{id}:
+    get:
+      tags:
+        - Rescuer
+      description: Retorna dados de um resgatante
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID do resgantante
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Rescuer'
+    put:
+      tags:
+        - Rescuer
+      description: Deve editar os dados de um resgatante
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID do resgatante
+      responses:
+        204:
+          description: NO CONTENT
+
+  /v1/rescuer/{id}/delete:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID do resgatante
+      tags:
+        - Rescuer
+      description: Deleta um resgate
+      responses:
+        '204':
+          description: NO CONTENT
+
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        streetName:
+          type: string
+        number:
+          type: string
+        neighbourhood:
+          type: string
+        city:
+          type: string
+    Rescuer:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        nationalId:
+          type: string
+        expeditionDate:
+          type: string
+        address:
+          type: object
+          $ref: '#components/schemas/Address'
+    Rescue:
+      type: object
+      properties:
+        extraData:
+          type: string
+        rescueStatus:
+          type: string
+          enum:
+            - ATENDIDO
+            - ANDAMENTO
+            - FINALIZADO
+        rescueDate:
+          type: string
+        rescuer:
+          type: array
+          items:
+            $ref: '#components/schemas/Rescuer'
+        address:
+          type: object
+          $ref: '#components/schemas/Address'
+        cat:
+          type: array
+          items:
+            $ref: '#components/schemas/Cat'
+
+    Cat:
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - DOENTE
+            - SAUDAVEL
+        age:
+          type: string
+          enum:
+            - FILHOTE
+            - ADULTO
+            - IDOSO
+        adopted:
+          type: boolean
+        picture:
+          type: string
