@@ -17,11 +17,14 @@ public class User {
     private String email;
     private String nationalId;
     private LocalDate expeditionDate;
-    private List<Roles> userRoles;
-    private Address address;
 
+    private Address address;
+    private String cnh;
+    private UserStatus status;
+    private List<Roles> userRoles;
     private String username;
     private String password;
-
     private boolean active;
+    private boolean driveAvailability;
+    private String neighbourhoodAvailability;
 }

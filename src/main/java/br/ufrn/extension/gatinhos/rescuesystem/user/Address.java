@@ -14,4 +14,8 @@ public class Address {
     private String number;
     private String neighbourhood;
     private String city;
+    private String extraData;
+    private String cep;
+    private boolean noScape;
+
 }

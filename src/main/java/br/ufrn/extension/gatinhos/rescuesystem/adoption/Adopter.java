@@ -8,7 +8,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 
 @Document
@@ -22,8 +21,9 @@ public class Adopter implements Serializable {
     private String name;
     private String email;
     private String nationalId;
-    private LocalDate expeditionDate;
 
     private Address address;
     private List<Cat> adoptedCats;
+    private boolean hasAnimals;
+    private boolean isolation;
 }
