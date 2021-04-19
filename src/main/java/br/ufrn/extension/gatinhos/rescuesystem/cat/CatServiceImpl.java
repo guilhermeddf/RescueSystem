@@ -16,15 +16,18 @@ public class CatServiceImpl implements CatService {
         catRepository.save(cat);
     }
 
+    @Override
     public void delete(String id){
        Cat c = catRepository.findById(id).orElseThrow(CatNotFoundException::new);
        catRepository.delete(c);
     }
 
+    @Override
     public Cat findCatById(String id) {
         return catRepository.findById(id).orElseThrow(CatNotFoundException::new);
     }
 
+    @Override
     public void update(String id, CatDTO catDTO) {
         Cat c = catRepository.findById(id).orElseThrow(CatNotFoundException::new);
         c.setAdopted(catDTO.isAdopted());
@@ -33,6 +36,7 @@ public class CatServiceImpl implements CatService {
         catRepository.save(c);
     }
 
+    @Override
     public List<Cat> listAll(){
         return catRepository.findAll();
     }

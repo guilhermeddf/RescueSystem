@@ -1,6 +1,7 @@
-package br.ufrn.extension.gatinhos.rescuesystem.adopter;
+package br.ufrn.extension.gatinhos.rescuesystem.adoption;
 
 import br.ufrn.extension.gatinhos.rescuesystem.cat.Cat;
+import br.ufrn.extension.gatinhos.rescuesystem.user.Address;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;

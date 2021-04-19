@@ -1,12 +1,10 @@
 package br.ufrn.extension.gatinhos.rescuesystem.rescue;
 
-import br.ufrn.extension.gatinhos.rescuesystem.adopter.Address;
 import br.ufrn.extension.gatinhos.rescuesystem.cat.Cat;
 import br.ufrn.extension.gatinhos.rescuesystem.rescuer.Rescuer;
-import lombok.AllArgsConstructor;
+import br.ufrn.extension.gatinhos.rescuesystem.user.Address;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,8 +14,6 @@ import java.util.List;
 @Data
 @Builder
 @Document
-@NoArgsConstructor
-@AllArgsConstructor
 public class Rescue {
     @Id
     private String id;
@@ -26,7 +22,5 @@ public class Rescue {
     private List<Rescuer> rescuers;
     private RescueStatus rescueStatus;
     private String extraData;
-
-    //@JsonSerialize(converter = LocalDateConverter.class)
     private LocalDate rescueDate;
 }

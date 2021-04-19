@@ -1,7 +1,5 @@
-package br.ufrn.extension.gatinhos.rescuesystem.security;
+package br.ufrn.extension.gatinhos.rescuesystem.user;
 
-import br.ufrn.extension.gatinhos.rescuesystem.adopter.Address;
-import br.ufrn.extension.gatinhos.rescuesystem.cat.Cat;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,13 +17,11 @@ public class User {
     private String email;
     private String nationalId;
     private LocalDate expeditionDate;
-    private Roles userRole;
+    private List<Roles> userRoles;
     private Address address;
 
     private String username;
     private String password;
 
     private boolean active;
-
-    private List<Cat> adoptedCats;
 }

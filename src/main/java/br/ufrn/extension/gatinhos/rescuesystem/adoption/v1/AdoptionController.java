@@ -1,10 +1,9 @@
-package br.ufrn.extension.gatinhos.rescuesystem.rescue.v1;
+package br.ufrn.extension.gatinhos.rescuesystem.adoption.v1;
 
-import br.ufrn.extension.gatinhos.rescuesystem.rescue.Rescue;
-import br.ufrn.extension.gatinhos.rescuesystem.rescue.RescueDTO;
-import br.ufrn.extension.gatinhos.rescuesystem.rescue.RescueService;
+import br.ufrn.extension.gatinhos.rescuesystem.adoption.Adoption;
+import br.ufrn.extension.gatinhos.rescuesystem.adoption.AdoptionDTO;
+import br.ufrn.extension.gatinhos.rescuesystem.adoption.AdoptionService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,33 +20,32 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("v1/rescue")
-@Slf4j
-public class RescueController {
-    private final RescueService service;
+@RequestMapping("v1/adoption")
+public class AdoptionController {
+    private final AdoptionService service;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void save(@RequestBody Rescue rescue){
-        service.save(rescue);
+    public void save (@RequestBody Adoption adoption){
+        service.save(adoption);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Rescue> listAll(){
-        return service.listRescues();
+    public List<Adoption> listAll(){
+        return service.listAdoptions();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Rescue findRescue(@PathVariable String id){
-        return service.findRescue(id);
+    public Adoption findRescue(@PathVariable String id){
+        return service.findAdoption(id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void updateRescue(@PathVariable String id, @RequestBody RescueDTO rescueDTO) {
-        service.update(id, rescueDTO);
+    public void updateRescue(@PathVariable String id, @RequestBody AdoptionDTO adoptionDTO) {
+        service.update(id, adoptionDTO);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -1,7 +1,6 @@
 package br.ufrn.extension.gatinhos.rescuesystem.rescue.v1;
 
 import br.ufrn.extension.gatinhos.rescuesystem.rescue.Rescue;
-import br.ufrn.extension.gatinhos.rescuesystem.rescue.RescueBuilder;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;

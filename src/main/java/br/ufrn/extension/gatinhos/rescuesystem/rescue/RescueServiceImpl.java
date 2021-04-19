@@ -17,14 +17,13 @@ public class RescueServiceImpl implements RescueService{
     }
 
     @Override
-    public Rescue findRescueById(String id) {
+    public Rescue findRescue(String id) {
         return repository.findById(id).orElseThrow(RescueNotFoundException::new);
     }
 
     @Override
     public void delete(String id) {
-        Rescue r = repository.findById(id).orElseThrow(RescueNotFoundException::new);
-        repository.delete(r);
+        repository.deleteById(id);
     }
 
     @Override
@@ -34,7 +33,7 @@ public class RescueServiceImpl implements RescueService{
     }
 
     @Override
-    public List<Rescue> listAll() {
+    public List<Rescue> listRescues() {
         return repository.findAll();
     }
 }

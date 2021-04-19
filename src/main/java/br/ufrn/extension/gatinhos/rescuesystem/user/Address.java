@@ -1,4 +1,4 @@
-package br.ufrn.extension.gatinhos.rescuesystem.adopter;
+package br.ufrn.extension.gatinhos.rescuesystem.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
