@@ -1,7 +1,6 @@
 package br.ufrn.extension.gatinhos.rescuesystem.rescue;
 
 import br.ufrn.extension.gatinhos.rescuesystem.adopter.Address;
-import br.ufrn.extension.gatinhos.rescuesystem.adopter.RescueStatus;
 import br.ufrn.extension.gatinhos.rescuesystem.cat.Age;
 import br.ufrn.extension.gatinhos.rescuesystem.cat.Cat;
 import br.ufrn.extension.gatinhos.rescuesystem.cat.CatStatus;
@@ -48,7 +47,7 @@ public class RescueBuilder {
         return Cat.builder()
                 .adopted(false)
                 .age(Age.FILHOTE)
-                .catStatus(CatStatus.DOENTE)
+                .status(CatStatus.DOENTE)
                 .name("Du Shit")
                 .picture("picture")
                 .build();

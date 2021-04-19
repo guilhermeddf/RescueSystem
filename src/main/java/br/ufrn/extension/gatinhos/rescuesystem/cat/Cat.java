@@ -15,6 +15,6 @@ public class Cat {
     private String picture;
     private String name;
     private Age age;
-    private CatStatus catStatus;
+    private CatStatus status;
     private boolean adopted = false;
 }
