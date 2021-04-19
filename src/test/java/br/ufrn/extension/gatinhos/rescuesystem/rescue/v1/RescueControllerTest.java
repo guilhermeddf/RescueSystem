@@ -9,6 +9,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testng.annotations.Test;
@@ -25,7 +26,7 @@ import static io.restassured.RestAssured.rootPath;
 
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 public class RescueControllerTest {
-    public static final String BASE_FOLDER = "C:\\Users\\guilh\\IdeaProjects\\RescueSystem\\src\\test\\resources\\br\\ufrn\\extension\\gatinhos\\rescuesystem\\";
+    public static final String BASE_FOLDER = PathMatchingResourcePatternResolver.CLASSPATH_URL_PREFIX + "/br/ufrn/extension/gatinhos/rescuesystem/rescue/";
 
     @BeforeAll
     void setUp(){
@@ -36,7 +37,7 @@ public class RescueControllerTest {
 
     @Test
     void should_test_get_rescue_controller() throws IOException {
-        String folder = BASE_FOLDER + "rescue\\";
+        String folder = BASE_FOLDER;
         FileInputStream inputStream = new FileInputStream(folder + "rescue_list_all_01.json");
         String jsonData = IOUtils.toString(inputStream);
         ObjectMapper objectMapper = new ObjectMapper();
