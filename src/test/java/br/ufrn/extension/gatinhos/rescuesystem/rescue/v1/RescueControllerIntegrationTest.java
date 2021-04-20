@@ -1,5 +1,6 @@
 package br.ufrn.extension.gatinhos.rescuesystem.rescue.v1;
 
+import br.ufrn.extension.gatinhos.rescuesystem.builders.RescueBuilder;
 import br.ufrn.extension.gatinhos.rescuesystem.rescue.Rescue;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,7 +21,7 @@ import static io.restassured.RestAssured.rootPath;
 
 
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
-public class RescueControllerTest {
+public class RescueControllerIntegrationTest {
 
     @BeforeAll
     void setUp(){

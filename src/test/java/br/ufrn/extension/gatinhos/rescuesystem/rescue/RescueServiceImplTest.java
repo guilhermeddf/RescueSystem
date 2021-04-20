@@ -1,5 +1,6 @@
 package br.ufrn.extension.gatinhos.rescuesystem.rescue;
 
+import br.ufrn.extension.gatinhos.rescuesystem.builders.RescueBuilder;
 import br.ufrn.extension.gatinhos.rescuesystem.exceptions.RescueNotFoundException;
 import br.ufrn.extension.gatinhos.rescuesystem.user.Address;
 import org.junit.jupiter.api.BeforeEach;
